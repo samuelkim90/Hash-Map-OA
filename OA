@@ -233,10 +233,6 @@ class HashMap:
             else:
                 new_da.put(self.buckets.get_at_index(num).key, self.buckets.get_at_index(num).value)
 
-        if self.buckets.get_at_index(self.capacity + 1):
-            if self.buckets.get_at_index(self.capacity + 1) is not None:
-                new_da.put(self.buckets.get_at_index(self.capacity + 1).key, self.buckets.get_at_index(self.capacity + 1).value)
-
         self.buckets = new_da.buckets
         self.capacity = new_da.capacity
         self.size = new_da.size
@@ -407,10 +403,8 @@ if __name__ == "__main__":
     print("----------------------")
     m = HashMap(75, hash_function_2)
     keys = [i for i in range(1, 1000, 13)]
-    output_count = 0
     for key in keys:
         m.put(str(key), key * 42)
-        print("size:", m.size, "cap:", m.capacity, "key:", key)
     print(m.size, m.capacity)
 
     for capacity in range(111, 1000, 117):
